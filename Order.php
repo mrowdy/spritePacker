@@ -8,7 +8,7 @@ class Order {
         return $this->sprites;
     }
 
-    public function addSprite(Sprite $sprite){
+    public function addSprite(iSprite $sprite){
         array_push($this->sprites, $sprite);
     }
 
@@ -26,9 +26,7 @@ class Order {
         if ($aSize == $bSize) {
             return 0;
         }
-        return ($aSize < $bSize) ? -1 : 1;
+        return ($aSize > $bSize) ? -1 : 1;
 
     }
-
-
 }

@@ -1,6 +1,6 @@
 <?php
 
-class Sprite {
+class Sprite implements iSprite {
 
     private $spritePath;
 
@@ -34,10 +34,6 @@ class Sprite {
 
     public function getSpritePath(){
         return $this->spritePath;
-    }
-
-    public function getImageSize(){
-        return array($this->imageWidth, $this->imageHeight);
     }
 
     public function getMimeType(){

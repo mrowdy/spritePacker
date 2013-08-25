@@ -1,6 +1,8 @@
 <?php
 
+require_once "../iSprite.php";
 require_once '../Sprite.php';
+
 
 class SpriteTest extends PHPUnit_Framework_TestCase {
 
@@ -21,9 +23,8 @@ class SpriteTest extends PHPUnit_Framework_TestCase {
         $expectedWidth = 200;
         $expectedHeight = 200;
         $sprite = new Sprite('sprites/test1.png');
-        $size = $sprite->getImageSize();
-        $this->assertEquals($expectedWidth, $size[0]);
-        $this->assertEquals($expectedHeight, $size[1]);
+        $this->assertEquals($expectedWidth, $sprite->getImageWidth());
+        $this->assertEquals($expectedHeight, $sprite->getImageHeight());
     }
 
     public function testSprite_getMimeType_png(){

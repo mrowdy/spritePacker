@@ -1,5 +1,6 @@
 <?php
 
+require_once "iSprite.php";
 require_once "Sprite.php";
 
 class SpritePacker {
