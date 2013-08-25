@@ -5,14 +5,24 @@ ini_set("display_errors", 1);
 
 require_once 'SpritePacker.php';
 
-$spritePacker = new SpritePacker();
-$spritePacker->addSprite('test/sprites/test1.png');
-$spritePacker->addSprite('test/sprites/test1.png');
-$spritePacker->addSprite('test/sprites/test1.png');
+$options = array(
+    'atlas-width' => 1600,
+    'atlas-height' => 2000,
+);
 
-$spritePacker->addSprite('test/sprites/dummy.pdf');
+$spritePacker = new SpritePacker($options);
+
+for($i = 0; $i < 8; $i++){
+    $spritePacker->addSprite('test/sprites/test1.png');
+}
+
+for($i = 0; $i < 3; $i++){
+    $spritePacker->addSprite('test/sprites/test1x2.png');
+}
+
+for($i = 0; $i < 2; $i++){
+    $spritePacker->addSprite('test/sprites/test1x4.png');
+}
+
 $spritePacker->run();
-
-//var_dump($spritePacker);
-
 $spritePacker->show();

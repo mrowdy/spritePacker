@@ -6,9 +6,11 @@ class Order {
     const ORDER_BY_SPRITESIZE = 1;
     protected static $orderBy;
 
+    protected $atlas = null;
     protected $sprites = array();
 
-    public function __construct(){
+    public function __construct(Atlas $atlas = null){
+        $this->atlas = $atlas;
         self::$orderBy = self::ORDER_BY_IMAGESIZE;
     }
 
@@ -33,6 +35,24 @@ class Order {
     public function order(){
         if(!empty($this->sprites)){
             usort($this->sprites, array('Order', 'orderLargestToSmallest'));
+        }
+
+        if($this->atlas){
+            foreach($this->sprites as $sprite){
+                $width = $this->getSpriteWidth($sprite);
+                $height = $this->getSpriteHeight($sprite);
+
+                try{
+                    $position = $this->atlas->findPosition($width, $height);
+
+                    $sprite->setAtlasPositionX($position['x']);
+                    $sprite->setAtlasPositionY($position['y']);
+                    $sprite->setAtlasPositionWidth($width);
+                    $sprite->setAtlasPositionHeight($height);
+                } catch(Exception $e) {
+                    //TODO: handle to big sprites
+                }
+            }
         }
     }
 
@@ -66,6 +86,29 @@ class Order {
             return 0;
         }
         return ($aSize < $bSize) ? -1 : 1;
+    }
 
+    protected function getSpriteWidth(iSprite $sprite){
+        switch(self::$orderBy){
+            case self::ORDER_BY_SPRITESIZE:
+                return $sprite->getSpriteWidth();
+                break;
+            case self::ORDER_BY_IMAGESIZE:
+            default:
+                return $sprite->getImageWidth();
+                break;
+        }
+    }
+
+    protected function getSpriteHeight(iSprite $sprite){
+        switch(self::$orderBy){
+            case self::ORDER_BY_SPRITESIZE:
+                return $sprite->getSpriteHeight();
+                break;
+            case self::ORDER_BY_IMAGESIZE:
+            default:
+                return $sprite->getImageHeight();
+                break;
+        }
     }
 }

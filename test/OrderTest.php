@@ -3,8 +3,9 @@
 require_once '../iSprite.php';
 require_once '../Sprite.php';
 require_once '../Order.php';
+require_once '../Atlas.php';
+require_once "../Block.php";
 require_once 'mock/SpriteMock.php';
-
 
 class OrderTest extends PHPUnit_Framework_TestCase {
 
@@ -120,7 +121,7 @@ class OrderTest extends PHPUnit_Framework_TestCase {
         $this->assertSame($orderedSprites[1], $sprites[1]);
     }
 
-    public function testOrder_ordeFourBySpriteSize_LargestToSmallest(){
+    public function testOrder_orderFourBySpriteSize_LargestToSmallest(){
         $sprites = array(
             new SpriteMock(100, 100, 50, 50),
             new SpriteMock(120, 120, 40, 40),
@@ -139,5 +140,74 @@ class OrderTest extends PHPUnit_Framework_TestCase {
         $this->assertSame($orderedSprites[1], $sprites[1]);
         $this->assertSame($orderedSprites[2], $sprites[2]);
         $this->assertSame($orderedSprites[3], $sprites[3]);
+    }
+
+    public function testOrder_placeFirstElement_topLeft(){
+        $sprites = array(
+            new SpriteMock(100, 100, 50, 50),
+        );
+
+        $atlas = new Atlas(400, 300);
+        $order = new Order($atlas);
+        $order->addSprites($sprites);
+
+        $order->order();
+        $orderedSprites = $order->getSprites();
+
+        $this->assertEquals($orderedSprites[0]->getAtlasPositionX(), 0);
+        $this->assertEquals($orderedSprites[0]->getAtlasPositionY(), 0);
+    }
+
+    public function testOrder_placeSecondElement_rightToFirstElement(){
+        $sprites = array(
+            new SpriteMock(100, 100, 50, 50),
+            new SpriteMock(100, 100, 50, 50),
+        );
+
+        $atlas = new Atlas(400, 300);
+        $order = new Order($atlas);
+        $order->addSprites($sprites);
+
+        $order->order();
+        $orderedSprites = $order->getSprites();
+
+        $this->assertEquals($orderedSprites[1]->getAtlasPositionX(), 100);
+        $this->assertEquals($orderedSprites[1]->getAtlasPositionY(), 0);
+    }
+
+    public function testOrder_placeThirdElement_rightToFirstElement(){
+        $sprites = array(
+            new SpriteMock(100, 100, 50, 50),
+            new SpriteMock(100, 100, 50, 50),
+            new SpriteMock(100, 100, 50, 50),
+        );
+
+        $atlas = new Atlas(500, 500);
+        $order = new Order($atlas);
+        $order->addSprites($sprites);
+
+        $order->order();
+        $orderedSprites = $order->getSprites();
+
+        $this->assertEquals($orderedSprites[2]->getAtlasPositionX(), 200);
+        $this->assertEquals($orderedSprites[2]->getAtlasPositionY(), 0);
+    }
+
+    public function testOrder_placeSecondElementBySpriteSize_rightToFirstElement(){
+        $sprites = array(
+            new SpriteMock(100, 100, 50, 50),
+            new SpriteMock(100, 100, 50, 50),
+        );
+
+        $atlas = new Atlas(400, 300);
+        $order = new Order($atlas);
+        $order->addSprites($sprites);
+
+        $order->setOrderBy(Order::ORDER_BY_SPRITESIZE);
+        $order->order();
+        $orderedSprites = $order->getSprites();
+
+        $this->assertEquals($orderedSprites[1]->getAtlasPositionX(), 50);
+        $this->assertEquals($orderedSprites[1]->getAtlasPositionY(), 0);
     }
 }

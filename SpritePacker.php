@@ -2,17 +2,30 @@
 
 require_once "iSprite.php";
 require_once "Sprite.php";
+require_once "Atlas.php";
+require_once "Block.php";
+require_once "Order.php";
 
 class SpritePacker {
 
     protected $sprites = array();
     protected $options = array(
-        'atlas-width'   => 400,
+        'atlas-width'   => 500,
+        'atlas-height'  => 500,
     );
 
     protected $atlasWidth = 0;
     protected $atlasHeight = 0;
-    protected $atlas   = null;
+    protected $atlas = null;
+    protected $atlasResource = null;
+    protected $order = null;
+
+    public function __construct($options = array()){
+
+        $this->options = array_merge($this->options, $options);
+        $this->atlas = new Atlas($this->options['atlas-width'], $this->options['atlas-height']);
+        $this->order = new Order($this->atlas);
+    }
 
     public function addSprite($spritePath){
         if(file_exists($spritePath) && $this->isImage($spritePath)){
@@ -27,15 +40,15 @@ class SpritePacker {
         if(empty($this->sprites)){
             return false;
         }
-        $this->getAtlasDimensions();
         $this->createAtlas();
+        $this->orderSprites();
         $this->populateAtlas();
         return true;
     }
 
     public function show(){
         header('Content-Type: image/png');
-        imagepng($this->atlas);
+        imagepng($this->atlasResource);
     }
 
     protected function isImage($spritePath){
@@ -46,57 +59,26 @@ class SpritePacker {
     }
 
     protected function createAtlas(){
-        $this->atlas = imagecreate($this->atlasWidth, $this->atlasHeight);
+        $this->atlasResource = imagecreate($this->options['atlas-width'], $this->options['atlas-height']);
     }
 
-    protected function getAtlasDimensions(){
-        $height = 0;
-        $currentWidth = 0;
-        foreach($this->sprites AS $sprite){
-            $spriteWidth = $sprite->getImageWidth();
-            $spriteHeight = $sprite->getImageHeight();
-            if($height == 0){
-                $height += $spriteWidth;
-                $currentWidth += $spriteWidth;
-            }
-            elseif($currentWidth + $spriteWidth > $this->options['atlas-width']){
-                $currentWidth = 0;
-                $height += $spriteHeight;
-            } else {
-                $currentWidth += $spriteWidth;
-            }
-        }
-        $this->atlasHeight = $height;
-        $this->atlasWidth  =$this->options['atlas-width'];
+    protected function orderSprites(){
+        $this->order->addSprites($this->sprites);
+        $this->order->order();
     }
 
     protected function populateAtlas(){
-        $currentHeight = 0;
-        $currentWidth = 0;
         foreach($this->sprites AS $sprite){
-            $spriteWidth = $sprite->getImageWidth();
-            $spriteHeight = $sprite->getImageHeight();
-            $newLine = false;
-            if($currentWidth + $spriteWidth > $this->options['atlas-width']){
-                $currentHeight += $spriteHeight;
-                $currentWidth = 0;
-                $newLine = true;
-            }
-
-            $dstImage = $this->atlas;
+            $dstImage = $this->atlasResource;
             $srcImage = $sprite->getImage();
-            $dstX = $currentHeight;
-            $dstY = $currentWidth;
+            $dstX = $sprite->getAtlasPositionX();
+            $dstY = $sprite->getAtlasPositionY();
             $srcX = 0;
             $srcY = 0;
-            $srcW = $sprite->getImageWidth();
-            $srcH = $sprite->getImageHeight();
+            $srcW = $sprite->getAtlasPositionWidth();
+            $srcH = $sprite->getAtlasPositionHeight();
 
             imagecopy($dstImage, $srcImage, $dstX, $dstY, $srcX, $srcY, $srcW, $srcH);
-            if(!$newLine){
-                $currentWidth += $spriteWidth;
-            }
         }
     }
-
 }

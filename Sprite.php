@@ -21,6 +21,14 @@ class Sprite implements iSprite {
     private $spriteTopX;
     private $spriteTopY;
 
+    /**
+     * Atlas Position
+     */
+    private $atlasPositionX = 0;
+    private $atlasPositionY = 0;
+    private $atlasPositionWidth = 0;
+    private $atlasPositionHeight = 0;
+
     public function __construct($spritePath){
         if(empty($spritePath)){
             throw new Exception('spritePath is empty');
@@ -60,7 +68,6 @@ class Sprite implements iSprite {
         return $this->imageHeight;
     }
 
-
     public function getSpriteTopX(){
         return $this->spriteTopX;
     }
@@ -71,6 +78,38 @@ class Sprite implements iSprite {
 
     public function getImage(){
         return $this->image;
+    }
+
+    public function setAtlasPositionX($pos){
+        $this->atlasPositionX = $pos;
+    }
+
+    public function setAtlasPositionY($pos){
+        $this->atlasPositionY = $pos;
+    }
+
+    public function getAtlasPositionX(){
+        return $this->atlasPositionX;
+    }
+
+    public function getAtlasPositionY(){
+        return $this->atlasPositionY;
+    }
+
+    public function setAtlasPositionWidth($width){
+        $this->atlasPositionWidth = $width;
+    }
+
+    public function setAtlasPositionHeight($height){
+        $this->atlasPositionHeight = $height;
+    }
+
+    public function getAtlasPositionWidth(){
+        return $this->atlasPositionWidth;
+    }
+
+    public function getAtlasPositionHeight(){
+        return $this->atlasPositionHeight;
     }
 
     protected function loadImage(){
@@ -125,7 +164,6 @@ class Sprite implements iSprite {
                     if($y > $y2){
                         $y2 = $y;
                     }
-
                 }
             }
         }
@@ -135,5 +173,4 @@ class Sprite implements iSprite {
         $this->spriteWidth = $x2 - $x1 + 1;
         $this->spriteHeight = $y2 - $y1 + 1;
     }
-
 }
