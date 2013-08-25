@@ -9,7 +9,7 @@ require_once 'mock/SpriteMock.php';
 class OrderTest extends PHPUnit_Framework_TestCase {
 
     public function testOrder_addSprite(){
-        $sprite = new Sprite('sprites/test1.png');
+        $sprite = new SpriteMock(120, 120, 100, 100);
         $order = new Order();
         $order->addSprite($sprite);
     }
@@ -21,8 +21,8 @@ class OrderTest extends PHPUnit_Framework_TestCase {
 
     public function testOrder_addTwoSprites_getTwoSprites(){
         $order = new Order();
-        $sprite1 = new Sprite('sprites/test1.png');
-        $sprite2 = new Sprite('sprites/test1.png');
+        $sprite1 = new SpriteMock(120, 120, 100, 100);
+        $sprite2 = new SpriteMock(120, 120, 100, 100);
 
         $order->addSprite($sprite1);
         $order->addSprite($sprite2);
@@ -30,7 +30,7 @@ class OrderTest extends PHPUnit_Framework_TestCase {
     }
 
     public function testOrder_orderOneSprite(){
-        $sprite = new Sprite('sprites/test1.png');
+        $sprite = new SpriteMock(120, 120, 100, 100);
         $order = new Order();
         $order->addSprite($sprite);
         $order->order();
