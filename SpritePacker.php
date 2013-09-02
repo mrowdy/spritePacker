@@ -75,10 +75,9 @@ class SpritePacker {
             $dstY = $sprite->getAtlasPositionY();
             $srcX = 0;
             $srcY = 0;
-            $srcW = $sprite->getAtlasPositionWidth();
-            $srcH = $sprite->getAtlasPositionHeight();
-
-            imagecopy($dstImage, $srcImage, $dstX, $dstY, $srcX, $srcY, $srcW, $srcH);
+            $srcW = $dstW = $sprite->getAtlasPositionWidth();
+            $srcH = $dstH = $sprite->getAtlasPositionHeight();
+            imagecopyresampled ($dstImage, $srcImage , $dstX , $dstY , $srcX , $srcX , $dstW , $dstH ,$srcW , $srcH);
         }
     }
 }
