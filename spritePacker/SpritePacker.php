@@ -1,6 +1,7 @@
 <?php
 
-require_once "iSprite.php";
+require_once "interface/iSprite.php";
+require_once "interface/iRenderer.php";
 require_once "Sprite.php";
 require_once "Atlas.php";
 require_once "Block.php";
