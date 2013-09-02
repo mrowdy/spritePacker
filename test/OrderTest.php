@@ -1,10 +1,6 @@
 <?php
 
-require_once '../iSprite.php';
-require_once '../Sprite.php';
-require_once '../Order.php';
-require_once '../Atlas.php';
-require_once "../Block.php";
+require_once '../spritePacker/SpritePacker.php';
 require_once 'mock/SpriteMock.php';
 
 class OrderTest extends PHPUnit_Framework_TestCase {

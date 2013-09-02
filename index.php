@@ -3,7 +3,7 @@
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
-require_once 'SpritePacker.php';
+require_once 'spritePacker/SpritePacker.php';
 
 $options = array(
     'atlas-width' => 500,

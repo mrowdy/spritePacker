@@ -1,8 +1,6 @@
 <?php
 
-require_once "../iSprite.php";
-require_once '../Sprite.php';
-
+require_once '../spritePacker/SpritePacker.php';
 
 class SpriteTest extends PHPUnit_Framework_TestCase {
 

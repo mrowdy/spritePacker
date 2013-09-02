@@ -1,7 +1,6 @@
 <?php
 
-require_once '../Atlas.php';
-require_once "../Block.php";
+require_once '../spritePacker/SpritePacker.php';
 
 class AtlasTest extends PHPUnit_Framework_TestCase {
 

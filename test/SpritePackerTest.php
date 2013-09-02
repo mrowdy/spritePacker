@@ -1,8 +1,11 @@
 <?php
 
-require_once '../SpritePacker.php';
+require_once '../spritePacker/SpritePacker.php';
 
 class SpritePackerTest extends PHPUnit_Framework_TestCase {
+
+    private $sprite32x32 = 'sprites/testSprite1.png';
+    private $dummyPdf = 'sprites/dummy.pdf';
 
     protected $spritePacker;
 
@@ -28,7 +31,7 @@ class SpritePackerTest extends PHPUnit_Framework_TestCase {
     }
 
     public function testSpritePacker_RunWith1Sprite_true() {
-        $this->spritePacker->addSprite('sprites/test1.png');
+        $this->spritePacker->addSprite($this->sprite32x32);
         $result = $this->spritePacker->run();
         $this->assertTrue($result);
     }
@@ -39,12 +42,12 @@ class SpritePackerTest extends PHPUnit_Framework_TestCase {
     }
 
     public function testSpritePacker_addExistingSprite_true(){
-        $result = $this->spritePacker->addSprite('sprites/test1.png');
+        $result = $this->spritePacker->addSprite($this->sprite32x32);
         $this->assertTrue($result);
     }
 
     public function testSpritePacker_addNonImageSprite_false(){
-        $result = $this->spritePacker->addSprite('sprites/dummy.pdf');
+        $result = $this->spritePacker->addSprite($this->dummyPdf);
         $this->assertFalse($result);
     }
 
