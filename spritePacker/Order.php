@@ -54,6 +54,7 @@ class Order {
                 }
             }
         }
+        return $this->sprites;
     }
 
     public function setOrderBy($orderBy){
@@ -69,13 +70,12 @@ class Order {
     }
 
     protected static function orderLargestToSmallest($a, $b){
-
         switch(self::$orderBy){
-            case self::ORDER_BY_SPRITESIZE:
+            case self::ORDER_BY_IMAGESIZE:
                 $aSize = $a->getImageWidth() * $a->getImageHeight();
                 $bSize = $b->getImageWidth() * $b->getImageHeight();
                 break;
-            case self::ORDER_BY_IMAGESIZE:
+            case self::ORDER_BY_SPRITESIZE:
             default:
                 $aSize = $a->getSpriteWidth() * $a->getSpriteHeight();
                 $bSize = $b->getSpriteWidth() * $b->getSpriteHeight();
@@ -85,7 +85,7 @@ class Order {
         if ($aSize == $bSize) {
             return 0;
         }
-        return ($aSize < $bSize) ? -1 : 1;
+        return ($aSize > $bSize) ? -1 : 1;
     }
 
     protected function getSpriteWidth(iSprite $sprite){

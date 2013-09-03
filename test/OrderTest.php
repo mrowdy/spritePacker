@@ -75,8 +75,8 @@ class OrderTest extends PHPUnit_Framework_TestCase {
         $order->order();
         $orderedSprites = $order->getSprites();
 
-        $this->assertSame($orderedSprites[0], $sprites[1]);
-        $this->assertSame($orderedSprites[1], $sprites[0]);
+        $this->assertSame($orderedSprites[0], $sprites[0]);
+        $this->assertSame($orderedSprites[1], $sprites[1]);
     }
 
     public function testOrder_orderFourSprites_largestToSmallest(){

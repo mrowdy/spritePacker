@@ -12,6 +12,9 @@ $options = array(
 
 $spritePacker = new SpritePacker($options);
 
+
+
+
 for($i = 0; $i < 8; $i++){
     $spritePacker->addSprite('test/sprites/testSprite1.png');
 }

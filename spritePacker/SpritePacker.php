@@ -65,7 +65,7 @@ class SpritePacker {
 
     protected function orderSprites(){
         $this->order->addSprites($this->sprites);
-        $this->order->order();
+        $this->sprites = $this->order->order();
     }
 
     protected function populateAtlas(){
