@@ -1,7 +1,5 @@
 <?php
 
-require_once '../spritePacker/SpritePacker.php';
-
 class AtlasTest extends PHPUnit_Framework_TestCase {
 
     public function testAtlas_createAtlasWithWidthAndHeight(){

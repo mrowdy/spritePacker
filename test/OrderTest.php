@@ -1,6 +1,5 @@
 <?php
 
-require_once '../spritePacker/SpritePacker.php';
 require_once 'mock/SpriteMock.php';
 
 class OrderTest extends PHPUnit_Framework_TestCase {
