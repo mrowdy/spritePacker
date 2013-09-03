@@ -8,11 +8,13 @@ require_once 'spritePacker/SpritePacker.php';
 $options = array(
     'atlas-width' => 500,
     'atlas-height' => 500,
+    'render' => array(
+        'render-png' => 'atlas/atlas.png',
+        'render-png' => 'atlas/atlas2.png',
+    ),
 );
 
 $spritePacker = new SpritePacker($options);
-
-
 
 
 for($i = 0; $i < 8; $i++){
@@ -28,4 +30,4 @@ for($i = 0; $i < 2; $i++){
 }
 
 $spritePacker->run();
-$spritePacker->show();
+$spritePacker->show('render-png');

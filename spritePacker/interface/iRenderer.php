@@ -2,8 +2,9 @@
 
 interface iRenderer{
 
-    public function renderAtlas(Atlas $atlas, array $sprites);
+    public function __construct($path);
+    public function render(Atlas $atlas, array $sprites);
     public function show();
-    public function save($path);
+    public function save();
 
 }

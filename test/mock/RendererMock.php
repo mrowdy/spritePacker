@@ -2,7 +2,11 @@
 
 class RendererMock implements iRenderer {
 
-    public function renderAtlas(Atlas $atlas, array $sprites){
+    public function __construct($path){
+
+    }
+
+    public function render(Atlas $atlas, array $sprites){
         return false;
     }
 
@@ -11,7 +15,7 @@ class RendererMock implements iRenderer {
 
     }
 
-    public function save($path){
+    public function save(){
 
     }
 

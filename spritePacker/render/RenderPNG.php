@@ -1,13 +1,17 @@
 <?php
 
-class Renderer implements iRenderer {
+class RenderPNG implements iRenderer {
 
     protected $image;
+    protected $path;
 
-    public function renderAtlas(Atlas $atlas, array $sprites){
+    public function __construct($path){
+        $this->path = $path;
+    }
+
+    public function render(Atlas $atlas, array $sprites){
         $this->createAtlas($atlas);
         $this->populateImage($sprites);
-        $this->show();
     }
 
     public function show(){
@@ -15,8 +19,8 @@ class Renderer implements iRenderer {
         imagepng($this->image);
     }
 
-    public function save($path){
-
+    public function save(){
+        imagepng($this->image, $this->path);
     }
 
     protected function createAtlas(Atlas $atlas){
