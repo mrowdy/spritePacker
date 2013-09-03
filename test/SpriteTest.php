@@ -10,7 +10,7 @@ class SpriteTest extends PHPUnit_Framework_TestCase {
      * @expectedException Exception
      */
     public function testSprite_ConstructEmpty_Exception(){
-        $sprite = new Sprite();
+        $sprite = new Sprite('');
     }
 
     public function testSprite_ConstructValidImage(){
