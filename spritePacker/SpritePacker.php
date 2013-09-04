@@ -17,6 +17,7 @@ class SpritePacker {
         'render' => array(
             'render-png' => 'atlas/atlas.png',
         ),
+        'save' => true,
     );
 
     protected $atlasWidth = 0;
@@ -79,7 +80,9 @@ class SpritePacker {
     protected function render(){
         foreach($this->renderer as $renderer){
             $renderer->render($this->atlas, $this->sprites);
-            $renderer->save();
+            if($this->options['save']){
+                $renderer->save();
+            }
         }
     }
 }

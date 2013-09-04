@@ -9,7 +9,7 @@ class SpritePackerTest extends PHPUnit_Framework_TestCase {
 
     public function setUp(){
         parent::setUp();
-        $this->spritePacker = new SpritePacker();
+        $this->spritePacker = new SpritePacker(array('save' => false));
     }
 
     public function tearDown(){
