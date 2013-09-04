@@ -4,6 +4,7 @@ require_once "interface/iSprite.php";
 require_once "interface/iRenderer.php";
 require_once "Sprite.php";
 require_once "render/RenderPNG.php";
+require_once "render/RenderCSS.php";
 require_once "Atlas.php";
 require_once "Block.php";
 require_once "Order.php";
@@ -16,6 +17,7 @@ class SpritePacker {
         'atlas-height'  => 500,
         'render' => array(
             'render-png' => 'atlas/atlas.png',
+            'render-css' => 'atlas/atlas.css',
         ),
         'save' => true,
     );
@@ -38,6 +40,9 @@ class SpritePacker {
             switch($rendererName){
                 case 'render-png':
                     $this->renderer[$rendererName] = new RenderPNG($rendererPath);
+                    break;
+                case 'render-css':
+                    $this->renderer[$rendererName] = new RenderCSS($rendererPath);
                     break;
             }
         }

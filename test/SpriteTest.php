@@ -19,6 +19,14 @@ class SpriteTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals($path, $sprite->getSpritePath());
     }
 
+    public function testSprite_getName_string(){
+        $expected = 'testSprite1';
+
+        $path = $this->sprite32x32;
+        $sprite = new Sprite($path);
+        $this->assertEquals($expected, $sprite->getName());
+    }
+
     public function testSprite_loadValidImage_correctImageDimensions(){
         $expectedWidth = 32;
         $expectedHeight = 32;

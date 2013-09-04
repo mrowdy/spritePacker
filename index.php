@@ -8,26 +8,21 @@ require_once 'spritePacker/SpritePacker.php';
 $options = array(
     'atlas-width' => 500,
     'atlas-height' => 500,
-    'render' => array(
-        'render-png' => 'atlas/atlas.png',
-        'render-png' => 'atlas/atlas2.png',
-    ),
 );
 
 $spritePacker = new SpritePacker($options);
 
 
-for($i = 0; $i < 8; $i++){
-    $spritePacker->addSprite('test/sprites/testSprite1.png');
-}
+$spritePacker->addSprite('test/sprites/testSprite1.png');
+$spritePacker->addSprite('test/sprites/testSprite2.png');
+$spritePacker->addSprite('test/sprites/testSprite3.png');
 
-for($i = 0; $i < 3; $i++){
-    $spritePacker->addSprite('test/sprites/testSprite2.png');
-}
-
-for($i = 0; $i < 2; $i++){
-    $spritePacker->addSprite('test/sprites/testSprite3.png');
-}
 
 $spritePacker->run();
-$spritePacker->show('render-png');
+//$spritePacker->show('render-css');
+
+?>
+
+<link rel="stylesheet" type="text/css" href="atlas/atlas.css">
+<span class="sprite testSprite1"></span>
+

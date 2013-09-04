@@ -3,6 +3,7 @@
 class Sprite implements iSprite {
 
     private $spritePath;
+    private $name;
 
     /**
      * Image
@@ -34,10 +35,16 @@ class Sprite implements iSprite {
             throw new Exception('spritePath is empty');
         }
         $this->spritePath = $spritePath;
+        $this->name = $this->filterName($spritePath);
         $this->setImageMeta();
         $this->loadImage();
         $this->setImageAlpha();
         $this->setSpriteDimensions();
+    }
+
+
+    public function getName(){
+        return $this->name;
     }
 
     public function getSpritePath(){
@@ -110,6 +117,12 @@ class Sprite implements iSprite {
 
     public function getAtlasPositionHeight(){
         return $this->atlasPositionHeight;
+    }
+
+    protected function filterName($name){
+        $name = basename($name);
+        $name = pathinfo($name, PATHINFO_FILENAME);
+        return $name;
     }
 
     protected function loadImage(){
