@@ -4,8 +4,10 @@ class RenderCSS implements iRenderer {
 
     protected $css;
     protected $path;
+    protected $name;
 
-    public function __construct($path){
+    public function __construct($name, $path){
+        $this->name = $name;
         $this->path = $path;
     }
 

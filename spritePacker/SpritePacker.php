@@ -13,6 +13,7 @@ class SpritePacker {
 
     protected $sprites = array();
     protected $options = array(
+        'name' => 'atlas',
         'atlas-width'   => 500,
         'atlas-height'  => 500,
         'render' => array(
@@ -39,10 +40,10 @@ class SpritePacker {
         foreach($this->options['render'] AS $rendererName => $rendererPath){
             switch($rendererName){
                 case 'render-png':
-                    $this->renderer[$rendererName] = new RenderPNG($rendererPath);
+                    $this->renderer[$rendererName] = new RenderPNG($this->options['name'], $rendererPath);
                     break;
                 case 'render-css':
-                    $this->renderer[$rendererName] = new RenderCSS($rendererPath);
+                    $this->renderer[$rendererName] = new RenderCSS($this->options['name'], $rendererPath);
                     break;
             }
         }

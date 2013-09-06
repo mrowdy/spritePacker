@@ -2,7 +2,7 @@
 
 class RendererMock implements iRenderer {
 
-    public function __construct($path){
+    public function __construct($name, $path){
 
     }
 

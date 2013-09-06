@@ -6,7 +6,7 @@ class RendererTest extends PHPUnit_Framework_TestCase {
 
     public function setUp(){
         parent::setUp();
-        $this->renderer = new RendererMock('');
+        $this->renderer = new RendererMock('', '');
     }
 
     public function testRenderer_instanceOfiRenderer(){
