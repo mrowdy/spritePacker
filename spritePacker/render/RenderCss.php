@@ -25,10 +25,6 @@ class RenderCSS implements iRenderer {
         file_put_contents($path, $this->css);
     }
 
-
-    /**
-     * TODO: replace hardcoded path with atlas name
-     */
     public function createSpriteClass($atlas){
         $this->css = sprintf('
             .%s {
