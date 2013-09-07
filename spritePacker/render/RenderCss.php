@@ -21,7 +21,8 @@ class RenderCSS implements iRenderer {
     }
 
     public function save(){
-        file_put_contents($this->path, $this->css);
+        $path = sprintf('%s/%s.css', $this->path, $this->name);
+        file_put_contents($path, $this->css);
     }
 
 
@@ -30,24 +31,29 @@ class RenderCSS implements iRenderer {
      */
     public function createSpriteClass($atlas){
         $this->css = sprintf('
-            .sprite {
-                background: transparent url(%s);
+            .%s {
+                background: transparent url(%s.png);
                 width: %dpx;
                 height: %dpx;
-            }
-        ', 'atlas.png', $atlas->width, $atlas->height);
+            }',
+            $this->name,
+            $this->name,
+            $atlas->width,
+            $atlas->height
+        );
     }
 
     public function createSprites($sprites){
         foreach($sprites as $sprite){
             $spriteCss = sprintf('
-                .sprite.%s {
+                .%s.%s {
                     width: %dpx;
                     height: %dpx;
                     background-position: -%dpx -%dpx;
                     display: block;
                     padding: 0px;
                 }',
+                $this->name,
                 $sprite->getName(),
                 $sprite->getAtlasPositionWidth(),
                 $sprite->getAtlasPositionHeight(),
