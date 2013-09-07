@@ -4,7 +4,7 @@ require_once "interface/iSprite.php";
 require_once "interface/iRenderer.php";
 require_once "Sprite.php";
 require_once "render/RenderPNG.php";
-require_once "render/RenderCss.php";
+require_once "render/RenderCSS.php";
 require_once "render/RenderJSON.php";
 require_once "Atlas.php";
 require_once "Block.php";
