@@ -49,12 +49,24 @@ class SpritePacker {
     }
 
     public function addSprite($spritePath){
-        if(file_exists($spritePath) && $this->isImage($spritePath)){
+        if(file_exists($spritePath) && is_file($spritePath) && $this->isImage($spritePath)){
             $sprite = new Sprite($spritePath);
             array_push($this->sprites, $sprite);
             return true;
         }
         return false;
+    }
+
+    public function addFromDir($dir){
+        if(is_dir($dir)){
+            $files = scandir($dir);
+            foreach($files as $file){
+                if($file != '.' && $file != '..'){
+                    $file = sprintf('%s/%s', $dir, $file);
+                    $this->addSprite($file);
+                }
+            }
+        }
     }
 
     public function run(){

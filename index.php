@@ -17,6 +17,8 @@ $spritePacker = new SpritePacker($options);
 $spritePacker->addSprite('test/sprites/testSprite1.png');
 $spritePacker->addSprite('test/sprites/testSprite2.png');
 $spritePacker->addSprite('test/sprites/testSprite3.png');
+$spritePacker->addFromDir('test/sprites');
+$spritePacker->addFromDir('test/sprites');
 
 
 $spritePacker->run();
