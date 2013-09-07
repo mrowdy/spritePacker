@@ -7,8 +7,7 @@ require_once 'spritePacker/SpritePacker.php';
 
 $options = array(
     'name' => 'test-sprite',
-    'atlas-width' => 500,
-    'atlas-height' => 500,
+    'gutter' => 5,
 );
 
 $spritePacker = new SpritePacker($options);

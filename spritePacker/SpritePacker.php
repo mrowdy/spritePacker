@@ -18,6 +18,7 @@ class SpritePacker {
         'path' => 'atlas',
         'atlas-width'   => 500,
         'atlas-height'  => 500,
+        'gutter' => 0,
         'render' => array(
             'RenderCSS',
             'RenderPNG',
@@ -38,7 +39,7 @@ class SpritePacker {
 
         $this->options = array_merge($this->options, $options);
         $this->atlas = new Atlas($this->options['atlas-width'], $this->options['atlas-height']);
-        $this->order = new Order($this->atlas);
+        $this->order = new Order($this->atlas, $this->options['gutter']);
 
         foreach($this->options['render'] AS $rendererName){
             $renderer = new $rendererName($this->options['name'], $this->options['path']);

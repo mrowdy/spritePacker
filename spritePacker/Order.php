@@ -8,9 +8,11 @@ class Order {
 
     protected $atlas = null;
     protected $sprites = array();
+    protected $gutter = 0;
 
-    public function __construct(Atlas $atlas = null){
+    public function __construct(Atlas $atlas = null, $gutter = 0){
         $this->atlas = $atlas;
+        $this->gutter = $gutter;
         self::$orderBy = self::ORDER_BY_IMAGESIZE;
     }
 
@@ -43,7 +45,9 @@ class Order {
                 $height = $this->getSpriteHeight($sprite);
 
                 try{
-                    $position = $this->atlas->findPosition($width, $height);
+                    $widthG = $width + ($this->gutter);
+                    $heightG = $height + ($this->gutter);
+                    $position = $this->atlas->findPosition($widthG, $heightG);
 
                     $sprite->setAtlasPositionX($position['x']);
                     $sprite->setAtlasPositionY($position['y']);
