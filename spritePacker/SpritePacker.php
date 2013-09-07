@@ -51,7 +51,7 @@ class SpritePacker {
     public function addSprite($spritePath){
         if(file_exists($spritePath) && is_file($spritePath) && $this->isImage($spritePath)){
             $sprite = new Sprite($spritePath);
-            array_push($this->sprites, $sprite);
+            $this->sprites[$sprite->getName()] = $sprite;
             return true;
         }
         return false;
