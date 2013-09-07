@@ -26,12 +26,12 @@ class RenderCSS implements iRenderer {
     }
 
     public function createSpriteClass($atlas){
-        $this->css = sprintf('
-            .%s {
-                background: transparent url(%s.png);
-                width: %dpx;
-                height: %dpx;
-            }',
+        $this->css = sprintf(
+            '.%s {' . PHP_EOL
+            . '    background: transparent url(%s.png);' . PHP_EOL
+            . '    width: %dpx;' . PHP_EOL
+            . '    height: %dpx;' . PHP_EOL
+            . '}' . PHP_EOL,
             $this->name,
             $this->name,
             $atlas->width,
@@ -41,14 +41,14 @@ class RenderCSS implements iRenderer {
 
     public function createSprites($sprites){
         foreach($sprites as $sprite){
-            $spriteCss = sprintf('
-                .%s.%s {
-                    width: %dpx;
-                    height: %dpx;
-                    background-position: -%dpx -%dpx;
-                    display: block;
-                    padding: 0px;
-                }',
+            $spriteCss = sprintf( PHP_EOL .
+                '.%s.%s {' . PHP_EOL
+                . '    width: %dpx;' . PHP_EOL
+                . '    height: %dpx;' . PHP_EOL
+                . '    background-position: -%dpx -%dpx;' . PHP_EOL
+                . '    display: block;' . PHP_EOL
+                . '    padding: 0px;' . PHP_EOL
+                . '}' . PHP_EOL,
                 $this->name,
                 $sprite->getName(),
                 $sprite->getAtlasPositionWidth(),
