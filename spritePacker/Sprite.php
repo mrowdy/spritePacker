@@ -10,7 +10,7 @@ class Sprite implements iSprite {
      */
     private $image;
     private $imageType;
-    public $mimeType;
+    private $mimeType;
     public $imageWidth;
     public $imageHeight;
 
