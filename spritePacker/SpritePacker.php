@@ -5,6 +5,7 @@ require_once "interface/iRenderer.php";
 require_once "Sprite.php";
 require_once "render/RenderPNG.php";
 require_once "render/RenderCss.php";
+require_once "render/RenderJSON.php";
 require_once "Atlas.php";
 require_once "Block.php";
 require_once "Order.php";
@@ -20,6 +21,7 @@ class SpritePacker {
         'render' => array(
             'RenderCSS',
             'RenderPNG',
+            'RenderJSON',
         ),
         'save' => true,
     );
