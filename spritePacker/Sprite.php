@@ -4,6 +4,7 @@ class Sprite implements iSprite {
 
     private $spritePath;
     public $name;
+    protected $allowedName = '/\W/';
 
     /**
      * Image
@@ -122,6 +123,7 @@ class Sprite implements iSprite {
     protected function filterName($name){
         $name = basename($name);
         $name = pathinfo($name, PATHINFO_FILENAME);
+        $name = preg_replace($this->allowedName, '', $name);
         return $name;
     }
 
