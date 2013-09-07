@@ -14,11 +14,12 @@ class SpritePacker {
     protected $sprites = array();
     protected $options = array(
         'name' => 'atlas',
+        'path' => 'atlas',
         'atlas-width'   => 500,
         'atlas-height'  => 500,
         'render' => array(
-            'render-png' => 'atlas/atlas.png',
-            'render-css' => 'atlas/atlas.css',
+            'RenderCSS',
+            'RenderPNG',
         ),
         'save' => true,
     );
@@ -37,14 +38,10 @@ class SpritePacker {
         $this->atlas = new Atlas($this->options['atlas-width'], $this->options['atlas-height']);
         $this->order = new Order($this->atlas);
 
-        foreach($this->options['render'] AS $rendererName => $rendererPath){
-            switch($rendererName){
-                case 'render-png':
-                    $this->renderer[$rendererName] = new RenderPNG($this->options['name'], $rendererPath);
-                    break;
-                case 'render-css':
-                    $this->renderer[$rendererName] = new RenderCSS($this->options['name'], $rendererPath);
-                    break;
+        foreach($this->options['render'] AS $rendererName){
+            $renderer = new $rendererName($this->options['name'], $this->options['path']);
+            if($renderer instanceof iRenderer){
+                $this->renderer[$rendererName] = $renderer;
             }
         }
     }

@@ -6,6 +6,7 @@ ini_set("display_errors", 1);
 require_once 'spritePacker/SpritePacker.php';
 
 $options = array(
+    'name' => 'test-sprite',
     'atlas-width' => 500,
     'atlas-height' => 500,
 );
@@ -23,6 +24,6 @@ $spritePacker->run();
 
 ?>
 
-<link rel="stylesheet" type="text/css" href="atlas/atlas.css">
-<span class="sprite testSprite1"></span>
-
+<link rel="stylesheet" type="text/css" href="atlas/test-sprite.css">
+<span class="test-sprite testSprite1"></span>
+<img src="atlas/test-sprite.png" />

@@ -22,7 +22,8 @@ class RenderPNG implements iRenderer {
     }
 
     public function save(){
-        imagepng($this->image, $this->path);
+        $path = sprintf('%s/%s.png', $this->path, $this->name);
+        imagepng($this->image, $path);
     }
 
     protected function createAtlas(Atlas $atlas){
