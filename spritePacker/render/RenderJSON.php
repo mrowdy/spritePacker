@@ -31,7 +31,13 @@ class RenderJSON implements iRenderer {
     }
 
     public function createJson(){
-
+        $atlas = array(
+            'name' => $this->name,
+            'path' => $this->path,
+            'count' => count($this->sprites),
+            'sprites' => $this->sprites,
+        );
+        $this->json = json_encode($atlas);
     }
 
 }

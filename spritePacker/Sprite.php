@@ -3,32 +3,32 @@
 class Sprite implements iSprite {
 
     private $spritePath;
-    private $name;
+    public $name;
 
     /**
      * Image
      */
     private $image;
     private $imageType;
-    private $mimeType;
-    private $imageWidth;
-    private $imageHeight;
+    public $mimeType;
+    public $imageWidth;
+    public $imageHeight;
 
     /**
      * Sprite Dimensons
      */
-    private $spriteWidth;
-    private $spriteHeight;
-    private $spriteTopX;
-    private $spriteTopY;
+    public $spriteWidth;
+    public $spriteHeight;
+    public $spriteTopX;
+    public $spriteTopY;
 
     /**
      * Atlas Position
      */
-    private $atlasPositionX = 0;
-    private $atlasPositionY = 0;
-    private $atlasPositionWidth = 0;
-    private $atlasPositionHeight = 0;
+    public $atlasPositionX = 0;
+    public $atlasPositionY = 0;
+    public $atlasPositionWidth = 0;
+    public $atlasPositionHeight = 0;
 
     public function __construct($spritePath){
         if(empty($spritePath)){

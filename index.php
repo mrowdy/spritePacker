@@ -27,3 +27,6 @@ $spritePacker->run();
 <link rel="stylesheet" type="text/css" href="atlas/test-sprite.css">
 <span class="test-sprite testSprite1"></span>
 <img src="atlas/test-sprite.png" />
+<code>
+    <?php include 'atlas/test-sprite.json'; ?>
+</code>
