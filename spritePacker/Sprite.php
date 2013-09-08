@@ -4,7 +4,7 @@ class Sprite implements iSprite {
 
     private $spritePath;
     public $name;
-    protected $allowedName = '/\W/';
+    protected $allowedName = '/\W-/';
 
     /**
      * Image
