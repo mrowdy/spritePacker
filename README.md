@@ -63,6 +63,12 @@ Options:
         <td>String</td>
     </tr>
     <tr>
+        <td>path</td>
+        <td>path for generated files</td>
+        <td>atlas</td>
+        <td>String</td>
+    </tr>
+    <tr>
         <td>atlas-width</td>
         <td>Width of generated atlas in px</td>
         <td>500</td>
@@ -82,11 +88,7 @@ Options:
     </tr>
     <tr>
         <td>render</td>
-        <td>Which files to render.
-        available:
-        ** RenderPNG
-        ** RenderCSS
-        ** RenderJSON</td>
+        <td>Files to render</td>
         <td>array('RenderPNG', 'RenderCSS')</td>
         <td>Array</td>
     </tr>
