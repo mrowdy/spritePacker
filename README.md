@@ -31,12 +31,12 @@ Without config a 500x500px atlas will be generated under atlas/atlas.png with th
 **The folder 'atlas' has to be writable.**
 
 ```html
-    <!-- load generated css -->
-    <link rel="stylesheet" type="text/css" href="atlas/example-sprite.css">
+<!-- load generated css -->
+<link rel="stylesheet" type="text/css" href="atlas/example-sprite.css">
 
-    <!-- use your sprites -->
-    <span class="atlas sprite"></span>
-    <span class="atlas logo-sprite"></span>
+<!-- use your sprites -->
+<span class="atlas sprite"></span>
+<span class="atlas logo-sprite"></span>
 ```
 
 Usage with config
@@ -58,12 +58,12 @@ Creates /image/atlas/gui-atlas.png and /image/atlas/gui-atlas.css.
 **The folder 'image/atlas/' has to be writable.**
 
 ```html
-    <!-- load generated css -->
-    <link rel="stylesheet" type="text/css" href="/image/atlas/gui-atlas.css">
+<!-- load generated css -->
+<link rel="stylesheet" type="text/css" href="/image/atlas/gui-atlas.css">
 
-    <!-- use your sprites -->
-    <span class="gui-atlas sprite"></span>
-    <span class="gui-atlas logo-sprite"></span>
+<!-- use your sprites -->
+<span class="gui-atlas sprite"></span>
+<span class="gui-atlas logo-sprite"></span>
 ```
 
 Options:
@@ -172,3 +172,7 @@ $options = array(
 $spritePacker = new SpritePacker($options);
 
 ```
+
+All Example images from:
+http://openiconlibrary.sourceforge.net/
+http://unrestrictedstock.com/
