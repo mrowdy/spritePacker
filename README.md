@@ -82,11 +82,7 @@ Options:
     </tr>
     <tr>
         <td>render</td>
-        <td>Which files to render.
-        available:
-        * RenderPNG
-        * RenderCSS
-        * RenderJSON</td>
+        <td>Files to render</td>
         <td>array('RenderPNG', 'RenderCSS')</td>
         <td>Array</td>
     </tr>
