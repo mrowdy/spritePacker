@@ -174,5 +174,5 @@ $spritePacker = new SpritePacker($options);
 ```
 
 All Example images from:
-http://openiconlibrary.sourceforge.net/
-http://unrestrictedstock.com/
+* http://openiconlibrary.sourceforge.net/
+* http://unrestrictedstock.com/
