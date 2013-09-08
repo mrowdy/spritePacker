@@ -15,11 +15,11 @@ class SpriteMock implements iSprite{
     private $atlasPositionWidth = 0;
     private $atlasPositionHeight = 0;
 
-    public function __construct($imageWidth, $imageHeight, $spriteWidth, $spirteHeight){
+    public function __construct($imageWidth, $imageHeight, $spriteWidth, $spriteHeight) {
         $this->imageWidth = $imageWidth;
         $this->imageHeight = $imageHeight;
         $this->spriteWidth = $spriteWidth;
-        $this->spriteHeight = $spirteHeight;
+        $this->spriteHeight = $spriteHeight;
     }
 
     public function getImageWidth(){
@@ -35,7 +35,6 @@ class SpriteMock implements iSprite{
     }
 
     public function getSpriteHeight(){
-        return $this->spriteHeight;
         return $this->spriteHeight;
     }
 
@@ -70,5 +69,4 @@ class SpriteMock implements iSprite{
     public function getAtlasPositionHeight(){
         return $this->atlasPositionHeight;
     }
-
 }

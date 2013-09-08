@@ -3,14 +3,12 @@
 class SpriteTest extends PHPUnit_Framework_TestCase {
 
     private $sprite32x32 = 'sprites/testSprite1.png';
-    private $sprite64x64 = 'sprites/testSprite2.png';
-    private $sprite128x128 = 'sprites/testSprite3.png';
 
     /**
      * @expectedException Exception
      */
     public function testSprite_ConstructEmpty_Exception(){
-        $sprite = new Sprite('');
+        new Sprite('');
     }
 
     public function testSprite_ConstructValidImage(){

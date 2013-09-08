@@ -16,7 +16,7 @@ class Sprite implements iSprite {
     public $imageHeight;
 
     /**
-     * Sprite Dimensons
+     * Sprite Dimensions
      */
     public $spriteWidth;
     public $spriteHeight;
@@ -139,7 +139,7 @@ class Sprite implements iSprite {
                 $this->image = imagecreatefromgif($this->spritePath);
                 break;
             default:
-                throw new Exception(sprintf('unsupportet image %s: (%s)',$this->spritePath, $this->mimeType));
+                throw new Exception(sprintf('unsupported image %s: (%s)', $this->spritePath, $this->mimeType));
                 break;
         }
     }

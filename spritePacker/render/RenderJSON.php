@@ -10,27 +10,27 @@ class RenderJSON implements iRenderer {
 
     protected $json;
 
-    public function __construct($name, $path){
+    public function __construct($name, $path) {
         $this->name = $name;
         $this->path = $path;
     }
 
-    public function render(Atlas $atlas, array $sprites){
+    public function render(Atlas $atlas, array $sprites) {
         $this->atlas = $atlas;
         $this->sprites = $sprites;
         $this->createJSON();
     }
 
-    public function show(){
+    public function show() {
         echo $this->json;
     }
 
-    public function save(){
+    public function save() {
         $path = sprintf('%s/%s.json', $this->path, $this->name);
         file_put_contents($path, $this->json);
     }
 
-    public function createJson(){
+    protected function createJson() {
         $atlas = array(
             'name' => $this->name,
             'path' => $this->path,
@@ -39,5 +39,4 @@ class RenderJSON implements iRenderer {
         );
         $this->json = json_encode($atlas);
     }
-
 }

@@ -16,8 +16,8 @@ class SpritePacker {
     protected $options = array(
         'name' => 'atlas',
         'path' => 'atlas',
-        'atlas-width'   => 500,
-        'atlas-height'  => 500,
+        'atlas-width' => 500,
+        'atlas-height' => 500,
         'gutter' => 0,
         'render' => array(
             'RenderCSS',
@@ -35,22 +35,22 @@ class SpritePacker {
 
     protected $renderer = null;
 
-    public function __construct($options = array()){
+    public function __construct($options = array()) {
 
         $this->options = array_merge($this->options, $options);
         $this->atlas = new Atlas($this->options['atlas-width'], $this->options['atlas-height']);
         $this->order = new Order($this->atlas, $this->options['gutter']);
 
-        foreach($this->options['render'] AS $rendererName){
+        foreach ($this->options['render'] AS $rendererName) {
             $renderer = new $rendererName($this->options['name'], $this->options['path']);
-            if($renderer instanceof iRenderer){
+            if ($renderer instanceof iRenderer) {
                 $this->renderer[$rendererName] = $renderer;
             }
         }
     }
 
-    public function addSprite($spritePath){
-        if(file_exists($spritePath) && is_file($spritePath) && $this->isImage($spritePath)){
+    public function addSprite($spritePath) {
+        if (file_exists($spritePath) && is_file($spritePath) && $this->isImage($spritePath)) {
             $sprite = new Sprite($spritePath);
             $this->sprites[$sprite->getName()] = $sprite;
             return true;
@@ -58,11 +58,11 @@ class SpritePacker {
         return false;
     }
 
-    public function addFromDir($dir){
-        if(is_dir($dir)){
+    public function addFromDir($dir) {
+        if (is_dir($dir)) {
             $files = scandir($dir);
-            foreach($files as $file){
-                if($file != '.' && $file != '..'){
+            foreach ($files as $file) {
+                if ($file != '.' && $file != '..') {
                     $file = sprintf('%s/%s', $dir, $file);
                     $this->addSprite($file);
                 }
@@ -70,8 +70,8 @@ class SpritePacker {
         }
     }
 
-    public function run(){
-        if(empty($this->sprites)){
+    public function run() {
+        if (empty($this->sprites)) {
             return false;
         }
         $this->orderSprites();
@@ -79,26 +79,26 @@ class SpritePacker {
         return true;
     }
 
-    public function show($name){
+    public function show($name) {
         $this->renderer[$name]->show();
     }
 
-    protected function isImage($spritePath){
-        if(getimagesize($spritePath) !== false){
+    protected function isImage($spritePath) {
+        if (getimagesize($spritePath) !== false) {
             return true;
         }
         return false;
     }
 
-    protected function orderSprites(){
+    protected function orderSprites() {
         $this->order->addSprites($this->sprites);
         $this->sprites = $this->order->order();
     }
 
-    protected function render(){
-        foreach($this->renderer as $renderer){
+    protected function render() {
+        foreach ($this->renderer as $renderer) {
             $renderer->render($this->atlas, $this->sprites);
-            if($this->options['save']){
+            if ($this->options['save']) {
                 $renderer->save();
             }
         }

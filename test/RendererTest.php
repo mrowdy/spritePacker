@@ -4,6 +4,8 @@ require_once 'mock/RendererMock.php';
 
 class RendererTest extends PHPUnit_Framework_TestCase {
 
+    protected $renderer;
+
     public function setUp(){
         parent::setUp();
         $this->renderer = new RendererMock('', '');
@@ -13,5 +15,4 @@ class RendererTest extends PHPUnit_Framework_TestCase {
         $result = $this->renderer instanceof iRenderer;
         $this->assertTrue($result);
     }
-
 }
