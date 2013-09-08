@@ -27,7 +27,10 @@ class RenderPNG implements iRenderer {
     }
 
     protected function createAtlas(Atlas $atlas) {
-        $this->image = imagecreate($atlas->width, $atlas->height);
+        $this->image = imagecreatetruecolor($atlas->width, $atlas->height);
+        imagesavealpha($this->image, true);
+        $trans_colour = imagecolorallocatealpha($this->image, 0, 0, 0, 127);
+        imagefill($this->image, 0, 0, $trans_colour);
     }
 
     protected function populateImage(array $sprites) {
