@@ -27,6 +27,7 @@ $spritePacker->run();
 ```
 
 without config a 500x500px atlas will be generated under atlas/atlas.png with the css atlas/atlas.css.
+
 **The folder 'atlas' has to be writable.**
 
 Usage with config
@@ -44,6 +45,7 @@ $spritePacker->run();
 ```
 
 Creates /image/atlas/gui-atlas.png and /image/atlas/gui-atlas.css.
+
 **The folder 'image/atlas/' has to be writable.**
 
 Options:
@@ -99,3 +101,54 @@ Options:
         <td>Boolean</td>
     </tr>
 </table>
+
+Available Renderer
+-------------------------
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>RenderPNG</td>
+            <td>Create PNG antlas</td>
+        </tr>
+        <tr>
+            <td>RenderCSS</td>
+            <td>Create CSS file from atlas. Sprite names generated from file names</td>
+        </tr>
+        <tr>
+            <td>RenderJSON</td>
+            <td>Create CSS file from atlas. Sprite names generated from file names</td>
+        </tr>
+    </table>
+
+Use custom renderer
+-------------------------
+
+If CSS doesn't fit your needs, you can create your own renderer:
+
+```php
+$options = array(
+    'render' => 'RenderDerp',
+);
+
+$spritePacker = new SpritePacker($options);
+
+Class RenderDerp extends iRenderer {
+    public function __construct($name, $path){}
+
+    public function render(Atlas $atlas, array $sprites){
+        //Render your custom format
+    }
+
+    public function show(){
+        //output your format
+    }
+
+    public function save(){
+        //save your format to disk
+    }
+
+}
+```
