@@ -5,11 +5,11 @@ SpritePacker packs many smaller images on to larger images to reduce the HTTP ov
 It stores the locations of the smaller images as CSS or JSON so they are easily referenced by their filename in
 your code.
 
-SpritePacker is based on the bin packing algorithm
+SpritePacker is based on the bin packing algorithm.
 
 Usage
 -------------------------
-Create instance from SpritePacker class and add your images.
+Create an instance from SpritePacker class and add your images.
 
 ```php
 require_once 'spritePacker/SpritePacker.php';
@@ -26,7 +26,7 @@ $spritePacker->addSprite('images/logo-sprite.png');
 $spritePacker->run();
 ```
 
-without config a 500x500px atlas will be generated under atlas/atlas.png with the css atlas/atlas.css.
+Without config a 500x500px atlas will be generated under atlas/atlas.png with the corresponding css atlas/atlas.css.
 
 **The folder 'atlas' has to be writable.**
 
@@ -104,24 +104,24 @@ Options:
 
 Available Renderer
 -------------------------
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-        </tr>
-        <tr>
-            <td>RenderPNG</td>
-            <td>Create PNG antlas</td>
-        </tr>
-        <tr>
-            <td>RenderCSS</td>
-            <td>Create CSS file from atlas. Sprite names generated from file names</td>
-        </tr>
-        <tr>
-            <td>RenderJSON</td>
-            <td>Create CSS file from atlas. Sprite names generated from file names</td>
-        </tr>
-    </table>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>RenderPNG</td>
+        <td>Create PNG antlas</td>
+    </tr>
+    <tr>
+        <td>RenderCSS</td>
+        <td>Create CSS file from atlas. Sprite names generated from file names</td>
+    </tr>
+    <tr>
+        <td>RenderJSON</td>
+        <td>Create CSS file from atlas. Sprite names generated from file names</td>
+    </tr>
+</table>
 
 Use custom renderer
 -------------------------
@@ -129,11 +129,6 @@ Use custom renderer
 If CSS doesn't fit your needs, you can create your own renderer:
 
 ```php
-$options = array(
-    'render' => 'RenderDerp',
-);
-
-$spritePacker = new SpritePacker($options);
 
 Class RenderDerp extends iRenderer {
     public function __construct($name, $path){}
@@ -151,4 +146,11 @@ Class RenderDerp extends iRenderer {
     }
 
 }
+
+$options = array(
+    'render' => 'RenderDerp',
+);
+
+$spritePacker = new SpritePacker($options);
+
 ```
