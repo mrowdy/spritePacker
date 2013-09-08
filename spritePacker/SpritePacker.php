@@ -22,7 +22,7 @@ class SpritePacker {
         'render' => array(
             'RenderCSS',
             'RenderPNG',
-            'RenderJSON',
+            //'RenderJSON',
         ),
         'save' => true,
     );
