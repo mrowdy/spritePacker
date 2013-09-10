@@ -1,0 +1,3 @@
+[submodule "spritePacker"]
+	path = spritePacker
+	url = https://github.com/Slemgrim/spritePacker.git
