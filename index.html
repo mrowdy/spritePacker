@@ -19,7 +19,7 @@
           <a id="forkme_banner" href="https://github.com/Slemgrim/spritePacker">View on GitHub</a>
 
           <h1 id="project_title">Spritepacker Demo</h1>
-          <h2 id="project_tagline">SpritePacker is a PHP tool to create sprite atlases automatically from an existing image folder.</h2>
+          <h2 id="project_tagline">SpritePacker packs many smaller images on to larger images an creates the corresponding css.</h2>
 
             <section id="downloads">
               <a class="zip_download_link" href="https://github.com/Slemgrim/spritePacker/zipball/master">Download this project as a .zip file</a>
@@ -31,7 +31,24 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
+            <div>
+                <h2>Simple Usage</h2>
 
+                <p>Create an instance from SpritePacker class and add your images.</p>
+
+                <pre><code>
+$spriteDirectory = 'images/sprites';
+
+$spritePacker = new SpritePacker();
+$spritePacker->addFromDir($spriteDirectory);
+$spritePacker->run();
+                </code></pre>
+
+                <p>
+                    With this, a 500x500px atlas will be generated under atlas/atlas.png with the corresponding css atlas/atlas.css.
+                </p>
+                <img src="images/atlas/atlas-simple.png" alt="simple-atlas">
+            </div>
       </section>
     </div>
 
