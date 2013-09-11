@@ -8,7 +8,7 @@ your code.
 SpritePacker is based on the bin packing algorithm.
 
 Demo
-------------------------.
+------------------------
 http://slemgrim.github.io/spritePacker/
 
 Usage
