@@ -7,6 +7,10 @@ your code.
 
 SpritePacker is based on the bin packing algorithm.
 
+Demo
+------------------------.
+http://slemgrim.github.io/spritePacker/
+
 Usage
 -------------------------
 Create an instance from SpritePacker class and add your images.
@@ -39,7 +43,10 @@ Without config a 500x500px atlas will be generated under atlas/atlas.png with th
 <span class="atlas logo-sprite"></span>
 ```
 
-![alt tag](https://raw.github.com/Slemgrim/spritePacker/gh-pages/images/atlas/atlas-simple.png)
+Example Atlas
+------------------------
+
+![alt tag](https://raw.github.com/Slemgrim/spritePacker/gh-pages/images/atlas/options-atlas.png)
 
 Usage with config
 -------------------------
