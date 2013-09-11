@@ -48,6 +48,11 @@ Example Atlas
 
 ![alt tag](https://raw.github.com/Slemgrim/spritePacker/gh-pages/images/atlas/options-atlas.png)
 
+Example images from:
+* http://openiconlibrary.sourceforge.net/
+* http://unrestrictedstock.com/
+
+
 Usage with config
 -------------------------
 
@@ -182,6 +187,3 @@ $spritePacker = new SpritePacker($options);
 
 ```
 
-All Example images from:
-* http://openiconlibrary.sourceforge.net/
-* http://unrestrictedstock.com/
