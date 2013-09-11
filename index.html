@@ -7,6 +7,8 @@
     <meta name="description" content="Spritepacker : SpritePacker is a PHP tool to create sprite atlases automatically from an existing image folder." />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="images/atlas/simple-atlas.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="images/atlas/options-atlas.css">
 
     <title>SpritePacker Demo</title>
   </head>
@@ -19,7 +21,7 @@
           <a id="forkme_banner" href="https://github.com/Slemgrim/spritePacker">View on GitHub</a>
 
           <h1 id="project_title">Spritepacker Demo</h1>
-          <h2 id="project_tagline">SpritePacker packs many smaller images on to larger images an creates the corresponding css.</h2>
+          <h2 id="project_tagline">SpritePacker packs many small images on to larger images and creates the corresponding css/json.</h2>
 
             <section id="downloads">
               <a class="zip_download_link" href="https://github.com/Slemgrim/spritePacker/zipball/master">Download this project as a .zip file</a>
@@ -47,8 +49,59 @@ $spritePacker->run();
                 <p>
                     With this, a 500x500px atlas will be generated under atlas/atlas.png with the corresponding css atlas/atlas.css.
                 </p>
-                <img src="images/atlas/atlas-simple.png" alt="simple-atlas">
+                <a href="images/atlas/simple-atlas.css">View Generated CSS</a>
+                <img src="images/atlas/simple-atlas.png" alt="simple-atlas">
+
+                <h3>Example Usage</h3>
+
+                <span class="simple-atlas application-exit-4"></span>
+                <span>(view code)</span>
             </div>
+
+          <div>
+              <h2>Usage widh options</h2>
+
+
+                <pre><code>
+
+$options = array(
+    'name' => 'options-atlas',
+    'atlas-width' => 260,
+    'atlas-height' => 400,
+    'gutter' => 5,
+    'render' => array(
+        'RenderCSS',
+        'RenderPNG',
+        'RenderJSON',
+    ),
+);
+
+$spriteDirectory = 'images/sprites';
+
+$spritePacker = new SpritePacker($options);
+$spritePacker->addFromDir($spriteDirectory);
+$spritePacker->run();
+                </code></pre>
+
+              <p>
+                  With this, a 500x500px atlas will be generated under atlas/atlas.png with the corresponding css atlas/atlas.css.
+              </p>
+              <a href="images/atlas/options-atlas.css">View Generated CSS</a><br />
+              <a href="images/atlas/options-atlas.json">View Generated JSON</a><br />
+              <img style="max-width:260px" src="images/atlas/options-atlas.png" alt="simple-atlas">
+
+              <h3>Example Usage</h3>
+
+              <span class="options-atlas pictogram-din-e001-direction-right"></span>
+              <span>(view code)</span>
+          </div>
+
+          <p>
+              All Example images from:<br />
+
+              <a href="http://openiconlibrary.sourceforge.net/">http://openiconlibrary.sourceforge.net/</a><br />
+              <a href="http://unrestrictedstock.com/">http://unrestrictedstock.com/</a>
+          </p>
       </section>
     </div>
 

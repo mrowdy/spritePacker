@@ -1,0 +1,213 @@
+.options-atlas {
+    background: transparent url(options-atlas.png);
+    width: 260px;
+    height: 400px;
+}
+
+.options-atlas.pine-tree {
+    width: 100px;
+    height: 100px;
+    background-position: -0px -0px;
+    display: block;
+    padding: 0px;
+}
+
+.options-atlas.bulb-tree {
+    width: 100px;
+    height: 100px;
+    background-position: -105px -0px;
+    display: block;
+    padding: 0px;
+}
+
+.options-atlas.snowy-winteo {
+    width: 100px;
+    height: 100px;
+    background-position: -0px -105px;
+    display: block;
+    padding: 0px;
+}
+
+.options-atlas.glowing-festive {
+    width: 100px;
+    height: 100px;
+    background-position: -105px -105px;
+    display: block;
+    padding: 0px;
+}
+
+.options-atlas.pictogram-din-e001-direction-right {
+    width: 64px;
+    height: 64px;
+    background-position: -0px -210px;
+    display: block;
+    padding: 0px;
+}
+
+.options-atlas.pictogram-din-e002-direction-down-right {
+    width: 64px;
+    height: 64px;
+    background-position: -69px -210px;
+    display: block;
+    padding: 0px;
+}
+
+.options-atlas.pictogram-din-e004-stretcher {
+    width: 64px;
+    height: 64px;
+    background-position: -138px -210px;
+    display: block;
+    padding: 0px;
+}
+
+.options-atlas.pictogram-din-e003-first_aid {
+    width: 64px;
+    height: 64px;
+    background-position: -0px -279px;
+    display: block;
+    padding: 0px;
+}
+
+.options-atlas.font-x-generic {
+    width: 48px;
+    height: 48px;
+    background-position: -207px -210px;
+    display: block;
+    padding: 0px;
+}
+
+.options-atlas.x-office-presentation {
+    width: 48px;
+    height: 48px;
+    background-position: -69px -279px;
+    display: block;
+    padding: 0px;
+}
+
+.options-atlas.package-x-generic {
+    width: 48px;
+    height: 48px;
+    background-position: -122px -279px;
+    display: block;
+    padding: 0px;
+}
+
+.options-atlas.flag-at {
+    width: 48px;
+    height: 48px;
+    background-position: -175px -279px;
+    display: block;
+    padding: 0px;
+}
+
+.options-atlas.network-server {
+    width: 0px;
+    height: 0px;
+    background-position: -0px -0px;
+    display: block;
+    padding: 0px;
+}
+
+.options-atlas.configure-4 {
+    width: 0px;
+    height: 0px;
+    background-position: -0px -0px;
+    display: block;
+    padding: 0px;
+}
+
+.options-atlas.emblem-default {
+    width: 0px;
+    height: 0px;
+    background-position: -0px -0px;
+    display: block;
+    padding: 0px;
+}
+
+.options-atlas.battery-charging-090 {
+    width: 0px;
+    height: 0px;
+    background-position: -0px -0px;
+    display: block;
+    padding: 0px;
+}
+
+.options-atlas.audio-volume-low-5 {
+    width: 0px;
+    height: 0px;
+    background-position: -0px -0px;
+    display: block;
+    padding: 0px;
+}
+
+.options-atlas.appointment-new-4 {
+    width: 0px;
+    height: 0px;
+    background-position: -0px -0px;
+    display: block;
+    padding: 0px;
+}
+
+.options-atlas.application-php {
+    width: 0px;
+    height: 0px;
+    background-position: -0px -0px;
+    display: block;
+    padding: 0px;
+}
+
+.options-atlas.application-exit-4 {
+    width: 0px;
+    height: 0px;
+    background-position: -0px -0px;
+    display: block;
+    padding: 0px;
+}
+
+.options-atlas.application-exit-5 {
+    width: 0px;
+    height: 0px;
+    background-position: -0px -0px;
+    display: block;
+    padding: 0px;
+}
+
+.options-atlas.audio-volume-high-5 {
+    width: 0px;
+    height: 0px;
+    background-position: -0px -0px;
+    display: block;
+    padding: 0px;
+}
+
+.options-atlas.cards-club {
+    width: 32px;
+    height: 32px;
+    background-position: -210px -105px;
+    display: block;
+    padding: 0px;
+}
+
+.options-atlas.cards-spade {
+    width: 32px;
+    height: 32px;
+    background-position: -210px -0px;
+    display: block;
+    padding: 0px;
+}
+
+.options-atlas.cards-heart {
+    width: 32px;
+    height: 32px;
+    background-position: -210px -37px;
+    display: block;
+    padding: 0px;
+}
+
+.options-atlas.cards-diamond {
+    width: 32px;
+    height: 32px;
+    background-position: -210px -142px;
+    display: block;
+    padding: 0px;
+}
