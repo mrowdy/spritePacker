@@ -1,7 +1,7 @@
 SpritePacker
 ================================
 
-SpritePacker packs many smaller images on to larger images to reduce the HTTP overhead produced by many image downloads.
+SpritePacker packs many small images on to larger images to reduce the HTTP overhead produced by many image downloads.
 It stores the locations of the smaller images as CSS or JSON so they are easily referenced by their filename in
 your code.
 
